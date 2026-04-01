@@ -96,6 +96,16 @@ plugins/
 
 ## Adding a new plugin
 
+The easiest way to add plugins, skills, agents, hooks, or MCP servers is with the **plugin-manager** agent. In VS Code chat, switch to `@plugin-manager` and describe what you want to add. The agent walks you through the process — picking the right plugin, creating files, and updating the marketplace manifest.
+
+```text
+@plugin-manager Add a new skill for Polars DataFrames
+@plugin-manager Add an external plugin from owner/repo
+@plugin-manager Add hooks to the conda-packaging plugin
+```
+
+### Manual steps
+
 1. Create a directory under `plugins/<plugin-name>/` with a `plugin.json` manifest and a `skills/` subdirectory.
 2. Place `SKILL.md` files (with YAML frontmatter containing `name` and `description`) in `skills/<skill-name>/`.
 3. Add the plugin entry to `.github/plugin/marketplace.json`.
