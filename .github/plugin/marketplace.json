@@ -51,6 +51,12 @@
       "source": "./plugins/presentation-design"
     },
     {
+      "name": "marimo",
+      "description": "Marimo reactive notebook skills — notebook authoring, anywidget components, batch job preparation, and WASM compatibility checking.",
+      "version": "1.0.0",
+      "source": "./plugins/marimo"
+    },
+    {
       "name": "anthropic-skills",
       "description": "Document processing skills from Anthropic including PowerPoint, Word, Excel, and PDF capabilities.",
       "version": "1.0.0",

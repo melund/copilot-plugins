@@ -1,0 +1,8 @@
+{
+  "name": "marimo",
+  "description": "Marimo reactive notebook skills — notebook authoring, anywidget components, batch job preparation, and WASM compatibility checking.",
+  "version": "1.0.0",
+  "author": { "name": "melund" },
+  "license": "Apache-2.0",
+  "keywords": ["marimo", "notebook", "anywidget", "wasm", "batch"]
+}

@@ -15,6 +15,7 @@ A personal agent plugin marketplace for VS Code and GitHub Copilot CLI. Skills a
 | `human-writing-en` | human-writing-en | English writing style that reads as human-authored, not AI-generated |
 | `joss-review` | joss-review | Guide for reviewing Journal of Open Source Software (JOSS) submissions |
 | `presentation-design` | presentation-design | Slide design and storytelling guidelines for all presentation tools |
+| `marimo` | marimo-notebook, anywidget, marimo-batch, wasm-compatibility | Marimo reactive notebook skills — authoring, widgets, batch jobs, WASM compatibility |
 
 ### External plugins
 
@@ -92,6 +93,13 @@ plugins/
   presentation-design/
     plugin.json
     skills/presentation-design/
+  marimo/
+    plugin.json
+    skills/
+      marimo-notebook/          # SKILL.md + references/
+      anywidget/                # SKILL.md
+      marimo-batch/             # SKILL.md + references/
+      wasm-compatibility/       # SKILL.md + references/
 ```
 
 ## Adding a new plugin
