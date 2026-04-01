@@ -1,0 +1,10 @@
+{
+  "name": "human-writing-en",
+  "description": "English writing style that reads as human-authored, not AI-generated. Covers banned vocabulary, sentence patterns, tone, and formatting.",
+  "version": "1.0.0",
+  "author": {
+    "name": "melund"
+  },
+  "license": "BSD-3-Clause",
+  "keywords": ["writing", "english", "style", "human-writing"]
+}

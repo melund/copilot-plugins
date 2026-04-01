@@ -1,0 +1,10 @@
+{
+  "name": "typst",
+  "description": "Modern markup-based typesetting system for scientific documents, presentations, and mathematical equations.",
+  "version": "1.0.0",
+  "author": {
+    "name": "melund"
+  },
+  "license": "Apache-2.0",
+  "keywords": ["typst", "typesetting", "documents", "latex-alternative", "presentations"]
+}

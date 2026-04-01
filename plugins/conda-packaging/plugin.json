@@ -1,0 +1,10 @@
+{
+  "name": "conda-packaging",
+  "description": "Conda packaging operations with conda-forge and rattler-build. Fixes failing builds, creates new packages, migrates recipes, and builds conda packages.",
+  "version": "1.0.0",
+  "author": {
+    "name": "melund"
+  },
+  "license": "BSD-3-Clause",
+  "keywords": ["conda", "conda-forge", "rattler-build", "packaging"]
+}

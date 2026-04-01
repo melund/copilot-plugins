@@ -1,0 +1,10 @@
+{
+  "name": "sqlalchemy",
+  "description": "Python SQL toolkit and ORM. Engine management, declarative mapping, sessions, queries, relationships, and async support.",
+  "version": "1.0.0",
+  "author": {
+    "name": "melund"
+  },
+  "license": "MIT",
+  "keywords": ["sqlalchemy", "sql", "orm", "database", "python"]
+}

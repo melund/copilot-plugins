@@ -1,0 +1,74 @@
+{
+  "name": "melund-skill-forge",
+  "owner": {
+    "name": "melund"
+  },
+  "metadata": {
+    "description": "Personal agent plugin marketplace with skills for conda packaging, data visualization, typesetting, writing, and more.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "conda-packaging",
+      "description": "Conda packaging operations with conda-forge and rattler-build. Fixes failing builds, creates new packages, migrates recipes, and builds conda packages.",
+      "version": "1.0.0",
+      "source": "./plugins/conda-packaging"
+    },
+    {
+      "name": "data-visualization",
+      "description": "Chart design and data storytelling with matplotlib, plus evaluation of non-deterministic functions with pydantic-evals.",
+      "version": "1.0.0",
+      "source": "./plugins/data-visualization"
+    },
+    {
+      "name": "typst",
+      "description": "Modern markup-based typesetting system for scientific documents, presentations, and mathematical equations.",
+      "version": "1.0.0",
+      "source": "./plugins/typst"
+    },
+    {
+      "name": "sqlalchemy",
+      "description": "Python SQL toolkit and ORM. Engine management, declarative mapping, sessions, queries, relationships, and async support.",
+      "version": "1.0.0",
+      "source": "./plugins/sqlalchemy"
+    },
+    {
+      "name": "human-writing-en",
+      "description": "English writing style that reads as human-authored, not AI-generated. Covers banned vocabulary, sentence patterns, tone, and formatting.",
+      "version": "1.0.0",
+      "source": "./plugins/human-writing-en"
+    },
+    {
+      "name": "joss-review",
+      "description": "Guide for reviewing Journal of Open Source Software (JOSS) submissions with complete review checklist and grading criteria.",
+      "version": "1.0.0",
+      "source": "./plugins/joss-review"
+    },
+    {
+      "name": "presentation-design",
+      "description": "Slide design and storytelling guidelines for all presentation tools. Covers outline-first workflow, minimal text, visual design, and pacing.",
+      "version": "1.0.0",
+      "source": "./plugins/presentation-design"
+    },
+    {
+      "name": "anthropic-skills",
+      "description": "Document processing skills from Anthropic including PowerPoint, Word, Excel, and PDF capabilities.",
+      "version": "1.0.0",
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills",
+        "ref": "98669c11ca63e9c81c11501e1437e5c47b556621"
+      }
+    },
+    {
+      "name": "scientific-skills",
+      "description": "Scientific skills including literature review, peer review, and Polars DataFrame library.",
+      "version": "1.0.0",
+      "source": {
+        "source": "github",
+        "repo": "k-dense-ai/claude-scientific-skills",
+        "ref": "b58ad7e874f6b8045114f70837a2cd50e0ede5b6"
+      }
+    }
+  ]
+}

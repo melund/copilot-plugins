@@ -1,0 +1,10 @@
+{
+  "name": "presentation-design",
+  "description": "Slide design and storytelling guidelines for all presentation tools. Covers outline-first workflow, minimal text, visual design, and pacing.",
+  "version": "1.0.0",
+  "author": {
+    "name": "melund"
+  },
+  "license": "BSD-3-Clause",
+  "keywords": ["presentations", "slides", "design", "storytelling"]
+}
