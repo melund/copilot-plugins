@@ -1,10 +1,10 @@
 {
   "name": "data-visualization",
-  "description": "Chart design and data storytelling with matplotlib, plus evaluation of non-deterministic functions with pydantic-evals.",
+  "description": "Chart design and data storytelling with matplotlib.",
   "version": "1.0.0",
   "author": {
     "name": "melund"
   },
   "license": "BSD-3-Clause",
-  "keywords": ["matplotlib", "charts", "data-visualization", "pydantic-evals", "evaluation"]
+  "keywords": ["matplotlib", "charts", "data-visualization"]
 }

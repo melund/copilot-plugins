@@ -16,7 +16,7 @@
     },
     {
       "name": "data-visualization",
-      "description": "Chart design and data storytelling with matplotlib, plus evaluation of non-deterministic functions with pydantic-evals.",
+      "description": "Chart design and data storytelling with matplotlib.",
       "version": "1.0.0",
       "source": "./plugins/data-visualization"
     },
