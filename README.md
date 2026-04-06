@@ -16,6 +16,7 @@ A personal agent plugin marketplace for VS Code and GitHub Copilot CLI. Skills a
 | `joss-review` | joss-review | Guide for reviewing Journal of Open Source Software (JOSS) submissions |
 | `presentation-design` | presentation-design | Slide design and storytelling guidelines for all presentation tools |
 | `marimo` | marimo-notebook, anywidget, marimo-batch, wasm-compatibility | Marimo reactive notebook skills — authoring, widgets, batch jobs, WASM compatibility |
+| `obsidian-cli` | obsidian-cli | Interact with Obsidian vaults via the official CLI (v1.12+) — notes, search, tasks, properties, and more |
 
 ### External plugins
 
