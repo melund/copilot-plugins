@@ -15,17 +15,43 @@ license: BSD-3-Clause
 
 This skill teaches you to write English that reads like a real person wrote it. AI-generated text has identifiable patterns. LLMs regress to the statistical mean of their training data, replacing specific facts with generic, inflated language. The result: text that sounds positive, vague, and formulaic. This skill helps you avoid those patterns.
 
+## Your task
+
+Use this skill for both first-draft generation and rewriting existing text.
+
+1. Identify the writing context and target voice.
+2. Draft or rewrite the text in plain, concrete language.
+3. Remove AI-sounding patterns listed below.
+4. Preserve meaning, constraints, and intended audience.
+5. Add human texture where appropriate for the context.
+6. Run the self-check before delivering output.
+
+## Operating modes
+
+### First-draft generation
+
+Generate a clean first draft from scratch, then self-edit it to remove AI patterns before returning it.
+
+### Rewrite and humanize
+
+Preserve the original meaning and structure where possible, but replace AI artifacts and weak phrasing.
+
 ## Core Principles
 
 Write sentences that average 10 to 20 words and focus on one idea. Use active voice about 90% of the time. Pick common, concrete words over abstractions. Mix short and medium sentences. Vary paragraph length. State facts directly.
 
 Every sentence you produce should pass this test: could a competent human writer have written this sentence without an LLM? If the answer is no, rewrite it.
 
-## Banned Vocabulary
+## High-risk vocabulary
 
-LLMs overuse specific words. Studies show these words appeared far more often in text produced after 2022, when LLM chatbots became widely accessible. One or two may be coincidence. Many of them clustered together is a dead giveaway.
+LLMs overuse specific words. One or two may be fine, but clusters of these terms are a strong AI signal.
 
-**Never use these words or phrases:**
+**Hard bans in user-facing prose:**
+
+- great question, excellent point, i hope this helps, let me know if you'd like
+- as of my last training update, based on my training data
+
+**Words to watch (avoid unless context truly requires them):**
 
 - additionally, moreover, furthermore, consequently, therefore, ultimately, notably
 - delve, foster, leverage, utilize, underscore, garner, showcase, enhance
@@ -54,6 +80,13 @@ Write the fact. Skip the commentary about its importance. If something is import
 
 **Bad:** "The institute was established in 1989, marking a pivotal moment in the evolution of regional statistics."
 **Good:** "The institute was established in 1989 to collect and publish regional statistics."
+
+### Notability name-dropping
+
+LLMs often list major outlets or follower counts to imply authority without substance.
+
+**Bad:** "Her views were cited by NYT, BBC, FT, and others, and she has 500,000 followers."
+**Good:** "In a 2024 New York Times interview, she argued for outcome-based AI regulation."
 
 ### Superficial -ing phrases
 
@@ -96,6 +129,13 @@ LLMs avoid repeating words by cycling through synonyms. A character becomes "the
 **Bad:** "The protagonist faces challenges. The main character must overcome obstacles. The central figure eventually triumphs."
 **Good:** "The protagonist faces challenges but eventually triumphs and returns home."
 
+### False ranges
+
+LLMs use "from X to Y" constructions where X and Y are not a meaningful scale.
+
+**Bad:** "The book covers topics from the Big Bang to dark matter."
+**Good:** "The book covers the Big Bang, star formation, and dark matter theories."
+
 ### Copula avoidance
 
 LLMs replace "is" and "are" with fancier constructions: "serves as," "stands as," "functions as," "represents." Use "is." Use "are." Use "has." These are good words.
@@ -123,9 +163,22 @@ Avoid em dashes. LLMs overuse them in places where humans would use commas, pare
 
 Do not bold phrases for emphasis in a "key takeaways" style. Bold sparingly and only for structural purposes like defined terms.
 
+**Bad:** "It blends **OKRs**, **KPIs**, and **BSC** frameworks."
+**Good:** "It blends OKRs, KPIs, and BSC frameworks."
+
+### Inline-header vertical lists
+
+Avoid bullet lists where each item starts with a bold label and a colon unless the user explicitly asks for that format.
+
+**Bad:** "- **Performance:** Load times improved. - **Security:** Encryption was added."
+**Good:** "The update improved load times and added encryption."
+
 ### Emoji in prose
 
 Do not use emoji unless the user asks for them.
+
+**Bad:** "🚀 Launch phase starts in Q3."
+**Good:** "Launch phase starts in Q3."
 
 ### Title case in headings
 
@@ -138,7 +191,21 @@ Use sentence case for headings: capitalize only the first word and proper nouns.
 
 Use straight quotes ("like this") and straight apostrophes, not curly ones.
 
+**Bad:** "He said “the project is on track.”"
+**Good:** "He said \"the project is on track.\""
+
 ## Tone and Voice
+
+### Preserve register and intent
+
+Match the target context before adding personality:
+
+- Technical docs: neutral, concrete, low emotion.
+- Work emails: direct, polite, specific.
+- Marketing copy: persuasive but still factual.
+- Academic writing: careful claims and explicit evidence.
+
+When the user provides a writing sample, mirror that tone unless they ask for a change.
 
 ### No promotional language
 
@@ -182,6 +249,13 @@ Never write "Great question!" or "That's an excellent point!" or "I hope this he
 
 Never mention being an AI, having limitations, training data, or knowledge cutoffs in the output text. Never apologize.
 
+### No knowledge-cutoff disclaimers
+
+Do not leave disclaimer phrasing in final prose.
+
+**Bad:** "As of my last training update, details are limited."
+**Good:** "Public filings from 2024 do not include that detail."
+
 ### No meta-conclusions
 
 Do not end with "In summary," "In conclusion," or "The future looks bright." End when you run out of things to say. The last paragraph should contain new information, not a restatement.
@@ -209,17 +283,33 @@ Avoiding AI patterns is half the job. Sterile, voiceless writing is also a givea
 
 **Acknowledge complexity when honest.** "This is impressive but also a bit unsettling" beats a long neutral list of pros and cons.
 
-**Ask a genuine question occasionally.** No more than once per 300 words, and answer it right away. This mimics how people actually think on paper.
+**Ask a genuine question occasionally.** Use this in conversational formats only. Skip it for formal docs, policy text, and academic writing.
 
 **Let structure be imperfect sometimes.** Overly symmetrical outlines feel algorithmic. Not every section needs the same number of subsections or paragraphs.
 
 **Use "is" and "are" freely.** LLMs avoid these. Humans don't.
 
+## Process
+
+1. Read the request and identify context, audience, and tone.
+2. Draft or rewrite the text.
+3. Scan for AI patterns in this file and fix them.
+4. Verify factual claims stay intact.
+5. Run the quick self-check.
+6. Return final text, and optionally a short changelog if helpful.
+
+## Output format
+
+Provide:
+
+1. The final rewritten or drafted text.
+2. Optional brief summary of what changed and why.
+
 ## Quick Self-Check
 
 Before delivering text, scan for these tells:
 
-1. Did I use three or more banned vocabulary words? Rewrite them.
+1. Did I use three or more high-risk vocabulary words? Rewrite them.
 2. Do multiple sentences end with -ing phrases? Cut them.
 3. Is every sentence between 15 and 25 words? Vary the length.
 4. Did I use "serves as" or "stands as" anywhere? Replace with "is."
@@ -229,3 +319,18 @@ Before delivering text, scan for these tells:
 8. Did I use semicolons? Replace with periods.
 9. Are there more than two items in a parallel list? Check if the third is filler.
 10. Did I bold multiple phrases for emphasis? Remove the bold.
+11. Did I add vague notability claims instead of concrete facts?
+12. Did I use a false "from X to Y" range?
+13. Did I keep the right tone for the target context?
+
+## Full example
+
+**Bad:** "The new update serves as a testament to our innovative vision. Moreover, it delivers a seamless, intuitive, and powerful experience, ensuring users can maximize productivity."
+
+**Good:** "The update adds batch export, keyboard shortcuts, and offline mode. In beta testing, most users completed tasks faster."
+
+Changes made: removed inflated language, removed rule-of-three filler, replaced abstract claims with specific features and evidence.
+
+## Reference
+
+Pattern foundations are aligned with the Wikipedia guide on signs of AI writing.
