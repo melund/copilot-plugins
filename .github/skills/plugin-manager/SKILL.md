@@ -50,10 +50,15 @@ Ask the user: **Add the plugin to this repository, or just reference an external
 
 ### Option A — Reference Only
 
-1. Collect the GitHub repo (`owner/repo`), a commit SHA or tag, and a short description.
-2. Add an external-source entry to `.github/plugin/marketplace.json`. See **`references/templates.md` → Marketplace Entry (external)** for the JSON shape.
-3. Add the plugin to the **External plugins** table in the root `README.md`.
-4. Confirm with the user.
+1. Collect the external source details: repository (`owner/repo` or git URL), optional subdirectory path, pin (`ref` and/or `sha`), and a short description.
+2. Decide how to scope the plugin:
+  - Whole plugin repository: use **Marketplace Entry (external)**.
+  - Plugin in a monorepo subdirectory: use **Marketplace Entry (external, git-subdir)**.
+  - Curated subset from a shared repository: use **Marketplace Entry (external, scoped components)** with `strict: false` and explicit component paths (for example `skills`).
+3. If scoping is required, verify component paths from upstream docs or upstream `marketplace.json` before writing the entry.
+4. Add an external-source entry to `.github/plugin/marketplace.json`. See **`references/templates.md`** for the JSON shape.
+5. Add the plugin to the **External plugins** table in the root `README.md`.
+6. Confirm with the user.
 
 ### Option B — Add Locally
 

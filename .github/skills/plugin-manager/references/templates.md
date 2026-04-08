@@ -73,8 +73,54 @@ Add to the `plugins` array in `.github/plugin/marketplace.json`:
   "source": {
     "source": "github",
     "repo": "<owner/repo>",
-    "ref": "<commit-sha-or-tag>"
+    "ref": "<branch-or-tag>",
+    "sha": "<optional-full-40-char-commit-sha>"
   }
+}
+```
+
+Use this when the external repository already contains a standalone plugin root.
+
+## Marketplace Entry (external, git-subdir)
+
+Use this when the plugin lives in a subdirectory of a larger git repository:
+
+```json
+{
+  "name": "<plugin-name>",
+  "description": "<description>",
+  "version": "1.0.0",
+  "source": {
+    "source": "git-subdir",
+    "url": "https://github.com/<owner>/<repo>.git",
+    "path": "<path/to/plugin-root>",
+    "ref": "<branch-or-tag>",
+    "sha": "<optional-full-40-char-commit-sha>"
+  }
+}
+```
+
+## Marketplace Entry (external, scoped components)
+
+Use this when the source repo is shared and you want to expose only selected components.
+Set `strict: false` and explicitly list component paths to avoid loading unrelated content.
+
+```json
+{
+  "name": "<plugin-name>",
+  "description": "<description>",
+  "version": "1.0.0",
+  "source": {
+    "source": "github",
+    "repo": "<owner/repo>",
+    "ref": "<branch-or-tag>",
+    "sha": "<optional-full-40-char-commit-sha>"
+  },
+  "strict": false,
+  "skills": [
+    "./skills/<skill-1>",
+    "./skills/<skill-2>"
+  ]
 }
 ```
 
@@ -88,7 +134,7 @@ name: <skill-name>
 description: >-
   <Multi-line description explaining when this skill should be used.
   Include specific trigger phrases and scenarios.>
-license: <SPDX-ID>
+license: <SPDX-ID> # Optional but recommended
 ---
 
 # <Skill Title>
