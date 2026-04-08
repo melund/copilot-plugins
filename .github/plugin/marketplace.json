@@ -81,6 +81,16 @@
         "repo": "k-dense-ai/claude-scientific-skills",
         "ref": "b58ad7e874f6b8045114f70837a2cd50e0ede5b6"
       }
+    },
+    {
+      "name": "marimo-pair",
+      "description": "Marimo pair programming protocol for interacting with running marimo notebooks, including cell editing, execution, and reactive graph workflows.",
+      "version": "1.0.0",
+      "source": {
+        "source": "github",
+        "repo": "marimo-team/marimo-pair",
+        "ref": "02b23c830566df0fe93cd910fe0ca3198a231a9d"
+      }
     }
   ]
 }
