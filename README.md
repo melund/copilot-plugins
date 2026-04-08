@@ -28,6 +28,10 @@ These reference upstream repositories directly:
 | `scientific-skills` | [k-dense-ai/claude-scientific-skills](https://github.com/k-dense-ai/claude-scientific-skills) | Literature review, peer review, Polars DataFrame library |
 | `marimo-pair` | [marimo-team/marimo-pair](https://github.com/marimo-team/marimo-pair) | Marimo pair programming protocol for interacting with running marimo notebooks |
 
+For locally mirrored skills copied from upstream repositories, source attribution
+is stored in each plugin README under a bottom section named `Upstream Sources`
+(`Local Path` → `Upstream URL`).
+
 ## Installation
 
 ### VS Code

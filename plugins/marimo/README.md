@@ -1,10 +1,3 @@
----
-sources:
-    "skills/marimo-notebook": "https://github.com/marimo-team/skills/tree/main/skills/marimo-notebook"
-    "skills/anywidget": "https://github.com/marimo-team/skills/tree/main/skills/anywidget"
-    "skills/marimo-batch": "https://github.com/marimo-team/skills/tree/main/skills/marimo-batch"
-    "skills/wasm-compatibility": "https://github.com/marimo-team/skills/tree/main/skills/wasm-compatibility"
----
 # Marimo
 
 Skills for working with [marimo](https://marimo.io/) reactive Python notebooks.
@@ -41,3 +34,12 @@ Activates when checking whether a marimo notebook is compatible with WebAssembly
 - Python 3.12+
 - [uv](https://docs.astral.sh/uv/) or pip
 - marimo (`uv pip install marimo`)
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/marimo-notebook` | https://github.com/marimo-team/skills/tree/main/skills/marimo-notebook |
+| `skills/anywidget` | https://github.com/marimo-team/skills/tree/main/skills/anywidget |
+| `skills/marimo-batch` | https://github.com/marimo-team/skills/tree/main/skills/marimo-batch |
+| `skills/wasm-compatibility` | https://github.com/marimo-team/skills/tree/main/skills/wasm-compatibility |

@@ -1,7 +1,3 @@
----
-sources:
-    "skills/presentation-design": "https://github.com/pavelzw/skill-forge/tree/main/recipes/presentation-design"
----
 # Presentation Design
 
 Presentation plugin that guides AI agents in designing effective slides and
@@ -28,3 +24,9 @@ Activated when creating, reviewing, or improving presentation slides regardless
 of the tool being used. Requires drafting a structured outline (with core message
 and narrative arc) before any slides are created — the agent will present the
 outline and wait for approval before proceeding.
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/presentation-design` | https://github.com/pavelzw/skill-forge/tree/main/recipes/presentation-design |

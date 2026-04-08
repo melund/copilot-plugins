@@ -1,7 +1,3 @@
----
-sources:
-    "skills/sqlalchemy": "https://github.com/pavelzw/skill-forge/tree/main/recipes/sqlalchemy"
----
 # SQLAlchemy
 
 Database plugin that helps AI agents write correct SQLAlchemy code using both
@@ -32,3 +28,9 @@ SQLAlchemy's database-agnostic API.
 
 - Python with `sqlalchemy` (`pip install sqlalchemy`)
 - For async support: `pip install sqlalchemy[asyncio]`
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/sqlalchemy` | https://github.com/pavelzw/skill-forge/tree/main/recipes/sqlalchemy |

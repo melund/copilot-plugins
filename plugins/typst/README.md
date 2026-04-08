@@ -1,7 +1,3 @@
----
-sources:
-    "skills/typst": "https://github.com/pavelzw/skill-forge/tree/main/recipes/typst"
----
 # Typst
 
 Typesetting plugin that helps AI agents create documents, presentations, and
@@ -34,3 +30,9 @@ formatting. Includes reference material for Typst's three syntactical modes
 ## Prerequisites
 
 - [Typst](https://typst.app/) CLI or the Typst web editor
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/typst` | https://github.com/pavelzw/skill-forge/tree/main/recipes/typst |

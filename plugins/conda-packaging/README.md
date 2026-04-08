@@ -1,8 +1,3 @@
----
-sources:
-    "skills/conda-forge": "https://github.com/pavelzw/skill-forge/tree/main/recipes/conda-forge"
-    "skills/rattler-build": "https://github.com/pavelzw/skill-forge/tree/main/recipes/rattler-build"
----
 # Conda Packaging
 
 Conda packaging plugin that helps AI agents build, debug, and publish conda
@@ -41,3 +36,10 @@ compiler handling, and virtual packages.
 - [pixi](https://pixi.sh/) — used to run tools without global installs
 - `gh` (GitHub CLI), `git`, `curl`, `jq`
 - Network access for fetching sources and interacting with conda-forge
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/conda-forge` | https://github.com/pavelzw/skill-forge/tree/main/recipes/conda-forge |
+| `skills/rattler-build` | https://github.com/pavelzw/skill-forge/tree/main/recipes/rattler-build |

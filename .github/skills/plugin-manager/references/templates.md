@@ -17,13 +17,10 @@ All templates used by the plugin-manager skill when scaffolding files.
 
 ## README.md
 
-When the plugin originates from an external source, include a `sources` frontmatter block. Omit the block for original plugins.
+When the plugin originates from an external source, add an `Upstream Sources`
+section at the bottom of `README.md`. Omit this section for original plugins.
 
 ```markdown
----
-sources:
-    "skills/<skill-name>": "<source-url>"
----
 # <Plugin Name>
 
 <Short description of what the plugin does.>
@@ -43,6 +40,12 @@ sources:
 ## Prerequisites
 
 - <Required tools or runtimes>
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/<skill-name>` | <source-url> |
 ```
 
 ## Marketplace Entry (local)

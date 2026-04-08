@@ -1,7 +1,3 @@
----
-sources:
-    "skills/matplotlib-data-visualization": "https://github.com/pavelzw/skill-forge/tree/main/recipes/matplotlib-data-visualization"
----
 # Data Visualization
 
 Data visualization plugin that guides AI agents in creating clear, compelling
@@ -28,3 +24,9 @@ based on *Storytelling with Data* principles.
 ## Prerequisites
 
 - Python with `matplotlib` for visualization tasks
+
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/matplotlib-data-visualization` | https://github.com/pavelzw/skill-forge/tree/main/recipes/matplotlib-data-visualization |

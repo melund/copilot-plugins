@@ -31,18 +31,20 @@ upstream sources.
 
 This repository contains plugins under `plugins/`. Some plugins have skills that
 were copied from external repositories. The `plugins/<plugin>/README.md` files
-use YAML front-matter with a `sources` map to declare where each skill
-originated:
+declare copied-skill origins in a markdown section named `Upstream Sources`
+at the bottom:
 
-```yaml
----
-sources:
-    "skills/some-skill": "https://github.com/org/repo/tree/main/path/to/skill"
----
+```markdown
+## Upstream Sources
+
+| Local Path | Upstream URL |
+|------------|--------------|
+| `skills/some-skill` | https://github.com/org/repo/tree/main/path/to/skill |
 ```
 
-The `sources` map keys are relative paths within the plugin folder and the values
-are browsable GitHub URLs pointing to the original skill directory.
+The `Local Path` values are relative paths within the plugin folder and the
+`Upstream URL` values are browsable GitHub URLs pointing to the original skill
+directory.
 
 ## Your Task
 
@@ -50,8 +52,10 @@ are browsable GitHub URLs pointing to the original skill directory.
 
 1. List all plugin directories under `plugins/`.
 2. For each plugin, read `plugins/<plugin>/README.md`.
-3. Parse the YAML front-matter. If there is a `sources` block, record every
-   `(local_path, upstream_url)` pair. Skip plugins without `sources`.
+3. Parse the markdown section named `Upstream Sources`.
+4. If the section contains a markdown table with `Local Path` and `Upstream URL`
+  columns, record every `(local_path, upstream_url)` pair.
+5. Skip plugins without an `Upstream Sources` section.
 
 ### Step 2 — Fetch upstream content and compare
 
@@ -112,8 +116,8 @@ Create **one PR per updated skill** (up to 3 PRs total). For each PR:
 
 - Update up to **three** skills per run, each in its own PR, to keep PRs small and reviewable.
 - Do not modify files outside the skill being updated.
-- Do not alter the README.md front-matter or the plugin.json.
+- Do not alter `plugin.json`.
 - If there is nothing to update, use the `noop` safe output — do not create
   an empty PR.
-- Preserve the local file's indentation, line-ending style, and front-matter
-  format when applying changes.
+- Preserve the local file's indentation and line-ending style when applying
+  changes.

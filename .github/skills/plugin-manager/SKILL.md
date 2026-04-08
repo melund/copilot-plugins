@@ -58,7 +58,7 @@ Ask the user: **Add the plugin to this repository, or just reference an external
 ### Option B — Add Locally
 
 1. Create `plugins/<plugin-name>/plugin.json`. See **`references/templates.md` → plugin.json**.
-2. Create `plugins/<plugin-name>/README.md`. See **`references/templates.md` → README.md**. Include a `sources` frontmatter block when the plugin originates from an external source.
+2. Create `plugins/<plugin-name>/README.md`. See **`references/templates.md` → README.md**. When the plugin originates from an external source, add an `Upstream Sources` section at the bottom with a table mapping local skill paths to upstream URLs.
 3. Create skill folders under `plugins/<plugin-name>/skills/<skill-name>/` with a `SKILL.md`. Every `SKILL.md` requires YAML frontmatter with `name` and `description`. The description must contain trigger phrases for activation.
 4. Add a local-source entry to `.github/plugin/marketplace.json`. See **`references/templates.md` → Marketplace Entry (local)**.
 5. Add the plugin to the **Local plugins** table in the root `README.md`.
