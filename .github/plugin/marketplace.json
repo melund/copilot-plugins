@@ -92,11 +92,11 @@
     {
       "name": "marimo-pair",
       "description": "Marimo pair programming protocol for interacting with running marimo notebooks, including cell editing, execution, and reactive graph workflows.",
-      "version": "1.0.0",
+      "version": "0.0.11",
       "source": {
         "source": "github",
         "repo": "marimo-team/marimo-pair",
-        "ref": "02b23c830566df0fe93cd910fe0ca3198a231a9d"
+        "ref": "fe502ae998c28e928b082b54258236be51998db0"
       }
     }
   ]
