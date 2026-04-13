@@ -1,6 +1,6 @@
 ---
 name: conda-forge
-description: Performs conda-forge operations. Fixes failing builds by analyzing CI logs, creates new packages via staged-recipes, adds cross-compilation and ARM support to feedstocks, and migrates recipes from v0 to v1 format. Use when working with conda-forge feedstocks, staged-recipes, build failures, recipe migrations, or when the user mentions conda-forge.
+description: Performs conda-forge operations. Fixes failing builds by analyzing CI logs, creates new packages via staged-recipes, adds native ARM CI support or explicit cross-compilation to feedstocks, and migrates recipes from v0 to v1 format. Use when working with conda-forge feedstocks, staged-recipes, build failures, recipe migrations, or when the user mentions conda-forge.
 license: BSD-3-Clause
 compatibility: >-
   Requires gh (GitHub CLI), git, curl, jq, tar, and pixi with
@@ -51,7 +51,7 @@ For `noarch: python` packages, provide a `python_min` variant override since sta
 rattler-build build -r recipes/<PACKAGE_NAME> -m .ci_support/<VARIANT>.yaml --variant python_min=3.10
 ```
 
-Submit a draft PR. Watch CI until green. Don't mark as ready for review — let the human do that. To skip a platform, add `skip: win` in the `build` section.
+Submit a draft PR, **always** use the PR template for the description. Watch CI until green. Don't mark as ready for review — let the human do that. To skip a platform, add `skip: win` in the `build` section.
 
 For submitting multiple related packages, place each in a separate directory under `recipes/`. The build system resolves dependency order within staged-recipes.
 
@@ -157,12 +157,13 @@ If a newer Python minimum is required than conda-forge's default (3.10), overrid
 - `noarch: python`: Use for pure Python packages with no compiled extensions or platform-specific code.
 - `noarch: generic`: Use for packages without any compiled code (e.g., shell-only recipes).
 - Build backend: Match `pyproject.toml`'s `[build-system].requires`.
-- For cross-compilation details, see [cross-compilation.md](references/cross-compilation.md).
+- For ARM enablement and explicit cross-compilation details, see [arm-builds-and-cross-compilation.md](references/arm-builds-and-cross-compilation.md).
 
 ### References
 
 - [Python recipe template](references/example-recipe-python.md)
 - [Go recipe template](references/example-recipe-go.md)
 - [Rust recipe template](references/example-recipe-rust.md)
-- [Cross-compilation and ARM support](references/cross-compilation.md)
+- [ARM builds and cross-compilation](references/arm-builds-and-cross-compilation.md)
+- [Shell completions for CLI packages](references/shell-completions.md)
 - [Recipe migration (v0 → v1)](references/rattler-build-migration.md)
