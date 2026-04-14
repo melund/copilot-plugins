@@ -36,6 +36,16 @@ The official Obsidian CLI (released in v1.12, February 2026) lets you control ev
 - **Windows**: Requires an `Obsidian.com` redirector file placed alongside `Obsidian.exe`. **Must run with normal user privileges** — admin terminals produce silent failures.
   - If colon subcommands (`property:set`, `daily:append`, etc.) with parameters return exit 127, check that `Obsidian.com` exists alongside `Obsidian.exe`. If missing, you have an outdated installer — download the latest from [obsidian.md/download](https://obsidian.md/download) and reinstall.
   - **Git Bash / MSYS2 users**: Bash resolves `obsidian` to `Obsidian.exe` (GUI) instead of `Obsidian.com` (CLI), causing colon+params to fail with exit 127 even when `Obsidian.com` is present. Create a wrapper script — see Troubleshooting.
+- **WSL (Windows Subsystem for Linux)**: The `obsidian` command is not available natively in WSL. Since Obsidian runs on the Windows side, call the Windows binary directly via WSL's interop layer:
+  ```bash
+  /mnt/c/Users/<USERNAME>/AppData/Local/Programs/Obsidian/Obsidian.com <command> [args...]
+  ```
+  WSL can run `.com` and `.exe` files on the Windows mount. The binary communicates with the running Obsidian instance via IPC on the Windows side and returns output to the WSL terminal. No additional setup is needed beyond WSL's default Windows interop being enabled. To find the path automatically:
+  ```bash
+  command -v obsidian.exe  # often resolves the .exe; you need .com instead
+  # Typical location:
+  /mnt/c/Users/$(cmd.exe /C "echo %USERNAME%" 2>/dev/null | tr -d '\r')/AppData/Local/Programs/Obsidian/Obsidian.com
+  ```
 - **Headless Linux**: Use the `.deb` package (not snap). Run under `xvfb`. Prefix commands with `DISPLAY=:5` (or your xvfb display number). Ensure `PrivateTmp=false` if running as a service.
 
 ## Syntax
@@ -259,3 +269,4 @@ obsidian command id="dataview:dataview-force-refresh-views"
 | `property:set` list value is a string | CLI stores value as-is | Edit frontmatter directly or use `eval` |
 | Colon+params exit 127 (missing `.com`) | Outdated installer — `Obsidian.com` absent | Reinstall from [obsidian.md/download](https://obsidian.md/download) |
 | Colon+params exit 127 (Git Bash / MSYS2) | Bash resolves `obsidian` to `.exe` not `.com` | Create `~/bin/obsidian` wrapper: `#!/bin/bash` / `/c/path/to/Obsidian.com "$@"` and add `export PATH="$HOME/bin:$PATH"` to `~/.bashrc` |
+| `obsidian` not found in WSL | CLI only exists on Windows side | Call `/mnt/c/Users/<USER>/AppData/Local/Programs/Obsidian/Obsidian.com` directly |
