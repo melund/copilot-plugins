@@ -95,3 +95,11 @@ def _(mo):
     mo.md(r"""demo""")
 ```
 
+## Grid search
+
+When the user wants to run a hyperparameter sweep, point them to [this grid launcher](references/grid.py). It works with the notebook in `references/starting-point.py` out of the box: it samples random combinations from a search space that matches the notebook's `ModelParams` fields and launches each one as a separate job.
+
+By default the script does a dry run (`uv run grid.py`) so the user can inspect the combinations before spending compute. Pass `--launch` to actually submit jobs. The `--count` and `--seed` flags control how many combinations to sample and the RNG seed.
+
+The reference uses Hugging Face Jobs as the compute provider, but this is just one option. The user can swap it out for Modal, RunPod, or any other provider that can run a uv script.
+
