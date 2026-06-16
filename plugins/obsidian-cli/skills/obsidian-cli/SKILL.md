@@ -36,6 +36,7 @@ The official Obsidian CLI (released in v1.12, February 2026) lets you control ev
 - **Windows**: Requires an `Obsidian.com` redirector file placed alongside `Obsidian.exe`. **Must run with normal user privileges** — admin terminals produce silent failures.
   - If colon subcommands (`property:set`, `daily:append`, etc.) with parameters return exit 127, check that `Obsidian.com` exists alongside `Obsidian.exe`. If missing, you have an outdated installer — download the latest from [obsidian.md/download](https://obsidian.md/download) and reinstall.
   - **Git Bash / MSYS2 users**: Bash resolves `obsidian` to `Obsidian.exe` (GUI) instead of `Obsidian.com` (CLI), causing colon+params to fail with exit 127 even when `Obsidian.com` is present. Create a wrapper script — see Troubleshooting.
+
 - **WSL (Windows Subsystem for Linux)**: The `obsidian` command is not available natively in WSL. Since Obsidian runs on the Windows side, call `Obsidian.com`, not `Obsidian.exe`, through WSL's Windows interop layer:
   ```bash
   /mnt/c/Users/<USERNAME>/AppData/Local/Programs/Obsidian/Obsidian.com <command> [args...]
