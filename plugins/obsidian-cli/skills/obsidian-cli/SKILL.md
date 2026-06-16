@@ -36,17 +36,75 @@ The official Obsidian CLI (released in v1.12, February 2026) lets you control ev
 - **Windows**: Requires an `Obsidian.com` redirector file placed alongside `Obsidian.exe`. **Must run with normal user privileges** — admin terminals produce silent failures.
   - If colon subcommands (`property:set`, `daily:append`, etc.) with parameters return exit 127, check that `Obsidian.com` exists alongside `Obsidian.exe`. If missing, you have an outdated installer — download the latest from [obsidian.md/download](https://obsidian.md/download) and reinstall.
   - **Git Bash / MSYS2 users**: Bash resolves `obsidian` to `Obsidian.exe` (GUI) instead of `Obsidian.com` (CLI), causing colon+params to fail with exit 127 even when `Obsidian.com` is present. Create a wrapper script — see Troubleshooting.
-- **WSL (Windows Subsystem for Linux)**: The `obsidian` command is not available natively in WSL. Since Obsidian runs on the Windows side, call the Windows binary directly via WSL's interop layer:
+- **WSL (Windows Subsystem for Linux)**: The `obsidian` command is not available natively in WSL. Since Obsidian runs on the Windows side, call `Obsidian.com`, not `Obsidian.exe`, through WSL's Windows interop layer:
   ```bash
   /mnt/c/Users/<USERNAME>/AppData/Local/Programs/Obsidian/Obsidian.com <command> [args...]
   ```
-  WSL can run `.com` and `.exe` files on the Windows mount. The binary communicates with the running Obsidian instance via IPC on the Windows side and returns output to the WSL terminal. No additional setup is needed beyond WSL's default Windows interop being enabled. To find the path automatically:
+  WSL can run `.com` and `.exe` files on the Windows mount. The `.com` redirector communicates with the running Windows Obsidian instance via IPC and returns output to the WSL terminal. No additional setup is needed beyond WSL's default Windows interop being enabled. To find the path automatically:
   ```bash
   command -v obsidian.exe  # often resolves the .exe; you need .com instead
   # Typical location:
   /mnt/c/Users/$(cmd.exe /C "echo %USERNAME%" 2>/dev/null | tr -d '\r')/AppData/Local/Programs/Obsidian/Obsidian.com
   ```
+  Always quote the path when invoking it, because Windows paths may contain spaces in other installations.
 - **Headless Linux**: Use the `.deb` package (not snap). Run under `xvfb`. Prefix commands with `DISPLAY=:5` (or your xvfb display number). Ensure `PrivateTmp=false` if running as a service.
+
+## WSL to Windows Obsidian Playbook
+
+When the agent is running in WSL/Linux but Obsidian Desktop is running on Windows, use the Windows-side `Obsidian.com` binary directly. Do not expect a native `obsidian` command to exist in WSL.
+
+### 1. Build the CLI Path
+
+```bash
+OBSIDIAN_CLI="/mnt/c/Users/$(cmd.exe /C "echo %USERNAME%" 2>/dev/null | tr -d '\r')/AppData/Local/Programs/Obsidian/Obsidian.com"
+test -f "$OBSIDIAN_CLI" && printf '%s\n' "$OBSIDIAN_CLI"
+```
+
+If the username is known, the explicit path is often clearer:
+
+```bash
+OBSIDIAN_CLI="/mnt/c/Users/<USERNAME>/AppData/Local/Programs/Obsidian/Obsidian.com"
+```
+
+### 2. Verify Windows Obsidian Is Reachable
+
+```bash
+"$OBSIDIAN_CLI" vaults
+"$OBSIDIAN_CLI" version
+```
+
+If these hang or return empty output, start Obsidian Desktop on Windows, enable Settings → Command line interface, and retry from a normal WSL shell. The Windows desktop app must be running because the CLI uses IPC.
+
+### 3. Target a Vault Explicitly
+
+Pass the vault name as the first argument when multiple vaults exist:
+
+```bash
+"$OBSIDIAN_CLI" "My Vault" read path="work/example.md"
+"$OBSIDIAN_CLI" "My Vault" search query="pin workflows" path="work" limit=10
+"$OBSIDIAN_CLI" "My Vault" daily:append content="- [ ] Follow up"
+```
+
+Paths remain vault-relative even though the command is launched from WSL. For a Windows vault at `C:\Users\<USERNAME>\repos-personal\MyVault`, the vault-relative path `work/example.md` maps to `/mnt/c/Users/<USERNAME>/repos-personal/MyVault/work/example.md` in WSL.
+
+If `"$OBSIDIAN_CLI" "Vault Name" ...` returns `Error: Command "Vault Name" not found`, omit the vault name and switch to the desired vault in the Obsidian UI first.
+
+### 4. Prefer Direct File Writes for Large Notes in Mounted Vaults
+
+For short one-line appends or simple reads, the CLI is fine. For long generated Markdown notes, especially multiline `content=` values from WSL, prefer writing the Markdown file directly to the mounted vault path when it is accessible:
+
+```bash
+# Vault-relative: work/repo-setup.md
+# WSL path: /mnt/c/Users/<USERNAME>/repos-personal/MyVault/work/repo-setup.md
+```
+
+Avoid sending large multiline Markdown through:
+
+```bash
+"$OBSIDIAN_CLI" "My Vault" create path="work/repo-setup" content="$long_multiline_markdown"
+```
+
+Large multiline `content=` payloads can break Obsidian's IPC JSON parsing and show a Windows dialog such as `A JavaScript error occurred in the main process` with `SyntaxError: Unexpected token ... is not valid JSON`. If CLI creation is required, create a small note first and append short chunks, or use a safer script/eval approach instead of one giant shell argument.
 
 ## Syntax
 
@@ -254,6 +312,7 @@ obsidian command id="dataview:dataview-force-refresh-views"
     ```
 12. **Multi-vault targeting may not work in all environments** — `obsidian "My Vault" command` can return `Error: Command "My Vault" not found` on some setups. If this happens, omit the vault name (CLI targets the most recently active vault) and switch vaults manually in the Obsidian UI.
 13. **When colon subcommands are unavailable** (e.g. Windows Git Bash without wrapper), prefer non-colon alternatives: use `properties` instead of `property:read`, and `obsidian daily:path` + `append` instead of `daily:append`.
+14. **WSL large note writes** — when the Windows vault is mounted at `/mnt/c/...`, write long generated Markdown directly to the vault file path instead of passing it as one multiline `content=` argument to `Obsidian.com`.
 
 ## Troubleshooting
 
@@ -270,3 +329,4 @@ obsidian command id="dataview:dataview-force-refresh-views"
 | Colon+params exit 127 (missing `.com`) | Outdated installer — `Obsidian.com` absent | Reinstall from [obsidian.md/download](https://obsidian.md/download) |
 | Colon+params exit 127 (Git Bash / MSYS2) | Bash resolves `obsidian` to `.exe` not `.com` | Create `~/bin/obsidian` wrapper: `#!/bin/bash` / `/c/path/to/Obsidian.com "$@"` and add `export PATH="$HOME/bin:$PATH"` to `~/.bashrc` |
 | `obsidian` not found in WSL | CLI only exists on Windows side | Call `/mnt/c/Users/<USER>/AppData/Local/Programs/Obsidian/Obsidian.com` directly |
+| Windows dialog: `A JavaScript error occurred in the main process` with `Unexpected token ... is not valid JSON` | Usually a malformed or overly large multiline CLI payload sent through IPC, often from WSL shell quoting | Stop using one giant `content=` argument; write the file directly to the mounted vault path or send shorter CLI chunks |
