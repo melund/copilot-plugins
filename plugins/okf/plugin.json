@@ -1,0 +1,8 @@
+{
+  "name": "okf",
+  "description": "Author and maintain Open Knowledge Format (OKF) v0.1 knowledge vaults. Summarize session knowledge and merge it into an OKF/Obsidian bundle with per-fact enrich/create/skip decisions and strict augmentation rules.",
+  "version": "1.0.0",
+  "author": { "name": "melund" },
+  "license": "BSD-3-Clause",
+  "keywords": ["okf", "obsidian", "knowledge-base", "notes", "knowledge-management"]
+}

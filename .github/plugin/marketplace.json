@@ -63,6 +63,12 @@
       "source": "./plugins/obsidian-cli"
     },
     {
+      "name": "okf",
+      "description": "Author and maintain Open Knowledge Format (OKF) v0.1 knowledge vaults. Summarize session knowledge and merge it into an OKF/Obsidian bundle with per-fact enrich/create/skip decisions and strict augmentation rules.",
+      "version": "1.0.0",
+      "source": "./plugins/okf"
+    },
+    {
       "name": "anthropic-skills",
       "description": "Document processing skills from Anthropic including PowerPoint, Word, Excel, and PDF capabilities.",
       "version": "1.0.0",

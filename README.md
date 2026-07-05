@@ -17,6 +17,7 @@ A personal agent plugin marketplace for VS Code and GitHub Copilot CLI. Skills a
 | `presentation-design` | presentation-design | Slide design and storytelling guidelines for all presentation tools |
 | `marimo` | marimo-notebook, anywidget, marimo-batch, wasm-compatibility | Marimo reactive notebook skills — authoring, widgets, batch jobs, WASM compatibility |
 | `obsidian-cli` | obsidian-cli | Interact with Obsidian vaults via the official CLI (v1.12+) — notes, search, tasks, properties, and more |
+| `okf` | okf-update-notes | Author and maintain Open Knowledge Format (OKF) v0.1 vaults — summarize session knowledge and merge it into an OKF/Obsidian bundle |
 
 ### External plugins
 
