@@ -95,6 +95,10 @@ def _(mo):
     mo.md(r"""demo""")
 ```
 
+## Compute platform 
+
+When the job is ready to get some serious compute, it is important that we keep good practices in mind. Consider batch sizes for the data set and make sure that there are plenty of logs so the user can spot if issues arise. 
+
 ## Grid search
 
 When the user wants to run a hyperparameter sweep, point them to [this grid launcher](references/grid.py). It works with the notebook in `references/starting-point.py` out of the box: it samples random combinations from a search space that matches the notebook's `ModelParams` fields and launches each one as a separate job.
