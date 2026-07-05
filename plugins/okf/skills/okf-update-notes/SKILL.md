@@ -31,15 +31,51 @@ Do **not** use for transient chit-chat, or to log a daily plan (that belongs in 
 
 ## Step 0 — Resolve the target vault
 
-This skill is vault-agnostic. Before writing anything, determine the target vault:
+This skill is vault-agnostic and is used from several machines (and sometimes
+WSL), so the vault root differs per environment. Resolve it in this order:
 
-1. If the user named a vault path or folder, use it.
-2. Else, if a default vault path is recorded in memory (e.g. under
-   `/memories/` as an `okf-vault-path`), use it and mention which vault you chose.
-3. Else, ask the user for the vault root path.
+1. **Explicit path.** If the user named a vault path or folder in the request, use
+   that and skip to confirmation.
+2. **Registry lookup.** Read the vault registry at
+   [`/memories/okf-vaults.md`](/memories/okf-vaults.md) (create it lazily — see
+   format below). Determine the current **environment key** and look for a matching
+   entry:
+   - Environment key = `<os>:<hostname>`, e.g. `windows:LAPTOP-ABC`,
+     `wsl:LAPTOP-ABC`, `linux:workstation`, `darwin:mac-mini`.
+   - Detect it with a quick shell probe, e.g.
+     `uname -s -n` (POSIX/WSL — WSL reports a `Microsoft`/`WSL` kernel string) or
+     `$env:COMPUTERNAME` + `$PSVersionTable.OS` (PowerShell on Windows).
+   - **Verify the recorded path still exists** before trusting it. If it's gone
+     (repo moved/renamed), treat as a miss and re-ask.
+3. **Ask and save.** If no matching, valid entry exists, ask the user for the vault
+   root path for *this* environment, then append it to the registry under the
+   current environment key. Never overwrite another environment's entry.
 
-Confirm the resolved root once, then treat all paths below as relative to it.
-Offer to save the chosen path to memory for next time.
+Because agent memory does not reliably sync across machines, expect the registry
+to be empty on a machine you haven't used the skill on before — that's normal;
+just ask once and record it.
+
+Confirm the resolved root once ("Using vault `<path>` for `<env-key>`"), then treat
+all paths below as relative to it.
+
+### Registry format (`/memories/okf-vaults.md`)
+
+A flat list, one entry per environment key. Keep it minimal:
+
+```markdown
+# OKF vault locations
+
+- windows:LAPTOP-ABC — C:\Users\molu\repos-personal\Memex
+- wsl:LAPTOP-ABC — /mnt/c/Users/molu/repos-personal/Memex
+- linux:workstation — /home/molu/vaults/Memex
+```
+
+Notes:
+- The same physical vault can appear under multiple keys with different path
+  syntaxes (a Windows checkout accessed from WSL via `/mnt/c/...`, or a separate
+  clone). Store whatever root works for the environment you're running in.
+- If several vaults exist on one machine, either key them more specifically
+  (`windows:LAPTOP-ABC:work`) or fall back to asking which one.
 
 ## Vault conventions
 
