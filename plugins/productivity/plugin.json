@@ -1,0 +1,10 @@
+{
+  "name": "productivity",
+  "description": "Teaching and learning workspace skills — create lessons, reference docs, and track learning missions.",
+  "version": "1.0.0",
+  "author": {
+    "name": "melund"
+  },
+  "license": "MIT",
+  "keywords": ["teaching", "learning", "productivity", "lessons", "skills"]
+}
