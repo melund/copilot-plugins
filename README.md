@@ -32,7 +32,9 @@ These reference upstream repositories directly:
 
 For locally mirrored skills copied from upstream repositories, source attribution
 is stored in each plugin README under a bottom section named `Upstream Sources`
-(`Local Path` → `Upstream URL`).
+(`Local Path` → `Upstream URL` → `Synced Ref`). The `Synced Ref` column records
+the upstream commit the local copy was last reconciled against and is maintained
+by the `sync-copied-skills` workflow.
 
 ## Installation
 

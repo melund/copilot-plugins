@@ -27,6 +27,6 @@ Includes format guides for missions, resources, learning records, and glossaries
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/teach` | https://github.com/mattpocock/skills/tree/main/skills/productivity/teach |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/teach` | https://github.com/mattpocock/skills/tree/main/skills/productivity/teach | |

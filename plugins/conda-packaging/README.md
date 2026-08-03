@@ -39,7 +39,7 @@ compiler handling, and virtual packages.
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/conda-forge` | https://github.com/pavelzw/skill-forge/tree/main/recipes/conda-forge |
-| `skills/rattler-build` | https://github.com/pavelzw/skill-forge/tree/main/recipes/rattler-build |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/conda-forge` | https://github.com/pavelzw/skill-forge/tree/main/recipes/conda-forge | |
+| `skills/rattler-build` | https://github.com/pavelzw/skill-forge/tree/main/recipes/rattler-build | |

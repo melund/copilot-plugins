@@ -19,6 +19,9 @@ All templates used by the plugin-manager skill when scaffolding files.
 
 When the plugin originates from an external source, add an `Upstream Sources`
 section at the bottom of `README.md`. Omit this section for original plugins.
+Leave the `Synced Ref` cell empty when adding a new source — the
+`sync-copied-skills` workflow fills it in with the upstream commit SHA it last
+reconciled against.
 
 ```markdown
 # <Plugin Name>
@@ -43,9 +46,9 @@ section at the bottom of `README.md`. Omit this section for original plugins.
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/<skill-name>` | <source-url> |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/<skill-name>` | <source-url> | |
 ```
 
 ## Marketplace Entry (local)

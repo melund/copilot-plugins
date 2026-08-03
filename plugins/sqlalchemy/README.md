@@ -31,6 +31,6 @@ SQLAlchemy's database-agnostic API.
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/sqlalchemy` | https://github.com/pavelzw/skill-forge/tree/main/recipes/sqlalchemy |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/sqlalchemy` | https://github.com/pavelzw/skill-forge/tree/main/recipes/sqlalchemy | |

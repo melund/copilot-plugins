@@ -29,6 +29,6 @@ Activates when the user wants to interact with an Obsidian vault — reading or 
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/obsidian-cli` | https://github.com/pablo-mano/Obsidian-CLI-skill/tree/main/plugins/obsidian-cli/skills/obsidian-cli |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/obsidian-cli` | https://github.com/pablo-mano/Obsidian-CLI-skill/tree/main/plugins/obsidian-cli/skills/obsidian-cli | |

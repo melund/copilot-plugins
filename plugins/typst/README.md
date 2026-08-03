@@ -33,6 +33,6 @@ formatting. Includes reference material for Typst's three syntactical modes
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/typst` | https://github.com/pavelzw/skill-forge/tree/main/recipes/typst |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/typst` | https://github.com/pavelzw/skill-forge/tree/main/recipes/typst | |

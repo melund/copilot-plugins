@@ -38,6 +38,6 @@ so it is self-contained.
 The bundled specification is a verbatim copy of the upstream OKF spec. Refresh it
 manually when the format revises.
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/okf-update-notes/references/okf-spec-v0.1.md` | https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/okf-update-notes/references/okf-spec-v0.1.md` | https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md | |

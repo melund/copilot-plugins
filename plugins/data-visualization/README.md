@@ -27,6 +27,6 @@ based on *Storytelling with Data* principles.
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/matplotlib-data-visualization` | https://github.com/pavelzw/skill-forge/tree/main/recipes/matplotlib-data-visualization |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/matplotlib-data-visualization` | https://github.com/pavelzw/skill-forge/tree/main/recipes/matplotlib-data-visualization | |

@@ -27,6 +27,6 @@ outline and wait for approval before proceeding.
 
 ## Upstream Sources
 
-| Local Path | Upstream URL |
-|------------|--------------|
-| `skills/presentation-design` | https://github.com/pavelzw/skill-forge/tree/main/recipes/presentation-design |
+| Local Path | Upstream URL | Synced Ref |
+|------------|--------------|------------|
+| `skills/presentation-design` | https://github.com/pavelzw/skill-forge/tree/main/recipes/presentation-design | |
