@@ -33,10 +33,10 @@
       "source": "./plugins/sqlalchemy"
     },
     {
-      "name": "human-writing-en",
+      "name": "human-writing",
       "description": "English writing style that reads as human-authored, not AI-generated. Covers banned vocabulary, sentence patterns, tone, and formatting.",
       "version": "1.0.0",
-      "source": "./plugins/human-writing-en"
+      "source": "./plugins/human-writing"
     },
     {
       "name": "joss-review",
