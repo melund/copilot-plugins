@@ -1,10 +1,10 @@
 {
-  "name": "human-writing-en",
-  "description": "English writing style that reads as human-authored, not AI-generated. Covers banned vocabulary, sentence patterns, tone, and formatting.",
+  "name": "human-writing",
+  "description": "Multilingual writing style skill for human-facing prose. Supports English and Danish with context guidance for messages, documentation, and editorial writing.",
   "version": "1.0.0",
   "author": {
-    "name": "melund"
+    "name": "molu_nyk"
   },
   "license": "BSD-3-Clause",
-  "keywords": ["writing", "english", "style", "human-writing"]
+  "keywords": ["writing", "english", "danish", "style", "human-writing", "documentation", "email"]
 }
